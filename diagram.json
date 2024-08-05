@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "author": "Brayan Stiven Olaya Rincon",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-s3-devkitc-1",
+      "id": "esp",
+      "top": -38.58,
+      "left": -110.63,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-lcd2004",
+      "id": "lcd1",
+      "top": 198.4,
+      "left": 53.6,
+      "attrs": { "pins": "i2c" }
+    },
+    { "type": "wokwi-ky-040", "id": "encoder1", "top": -113.5, "left": -10.4, "attrs": {} },
+    {
+      "type": "wokwi-membrane-keypad",
+      "id": "keypad1",
+      "top": -261.2,
+      "left": 322.4,
+      "attrs": {}
+    },
+    { "type": "wokwi-hc-sr04", "id": "ultrasonic1", "top": -113.7, "left": 111.1, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "lcd1:GND", "esp:GND.1", "black", [ "h-38.4", "v192", "h-153.6", "v-67.2", "h19.2" ] ],
+    [ "lcd1:VCC", "esp:5V", "red", [ "h-28.8", "v192.1", "h-182.4", "v-96" ] ],
+    [ "encoder1:GND", "esp:GND.1", "black", [ "h-268.8", "v-85.6" ] ],
+    [ "encoder1:VCC", "esp:5V", "red", [ "h-278.4", "v-86" ] ],
+    [ "encoder1:SW", "esp:1", "cyan", [ "h-76.8", "v-259.1" ] ],
+    [ "encoder1:DT", "esp:2", "orange", [ "h-67.2", "v-220.7", "h-115.2" ] ],
+    [ "encoder1:CLK", "esp:42", "limegreen", [ "h-144", "v-201.6" ] ],
+    [ "lcd1:SDA", "esp:8", "green", [ "h-76.8", "v201.8", "h-153.6", "v-192" ] ],
+    [ "lcd1:SCL", "esp:9", "green", [ "h-67.2", "v201.9", "h-201.6", "v-172.8" ] ],
+    [ "keypad1:R1", "esp:19", "green", [ "v0" ] ],
+    [ "keypad1:R2", "esp:20", "green", [ "v0" ] ],
+    [ "keypad1:R3", "esp:21", "green", [ "v0" ] ],
+    [ "keypad1:R4", "esp:47", "green", [ "v0" ] ],
+    [ "keypad1:C1", "esp:48", "green", [ "v134.4", "h-259.3" ] ],
+    [ "keypad1:C2", "esp:45", "green", [ "v0" ] ],
+    [ "keypad1:C3", "esp:0", "green", [ "v0" ] ],
+    [ "keypad1:C4", "esp:35", "green", [ "v0" ] ],
+    [ "ultrasonic1:VCC", "esp:5V", "red", [ "v240", "h-316.8", "v-38.4" ] ],
+    [ "ultrasonic1:GND", "esp:GND.1", "black", [ "v249.6", "h-356.4", "v-38.4" ] ],
+    [ "ultrasonic1:TRIG", "esp:41", "green", [ "v0" ] ],
+    [ "ultrasonic1:ECHO", "esp:40", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
